@@ -1,6 +1,5 @@
-
 /*  Jacob Bentley
- *  2022-01-13
+ *  2022-01-18
  *
  *  Project:            Implementing a red-black tree in C++.
  *  This iteration:     A simple binary tree with integer data.
@@ -8,20 +7,17 @@
  *
  */
 
-//  TODO: make testing classes, eg. testnode.default_const()
-//  TODO: how to link additional functions in main without header/objects?
+//  TODO: make testing classes
 
 /*  PREPROCESSOR  */
 
 #include "tree.h"
 
 
-/*  CONSTANTS  */
-
-
 /*  PROTOTYPES  */
 
 bool testnode_default_const(void); 
+
 
 /*  NODE TESTS  */
 
