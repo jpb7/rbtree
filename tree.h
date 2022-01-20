@@ -1,5 +1,5 @@
 /*  Jacob Bentley
- *  2022-01-18
+ *  2022-01-20
  *
  *  Project:            Implementing a red-black tree in C++.
  *  This iteration:     A simple binary tree with integer data.
@@ -38,6 +38,7 @@ class tree {
     public:
 
         tree(void);
+        tree(const int item);
         ~tree(void);
 
         //  Add value `n` to tree in sorted order.

@@ -1,5 +1,5 @@
 /*  Jacob Bentley
- *  2022-01-18
+ *  2022-01-20
  *
  *  Project:            Implementing a red-black tree in C++.
  *  This iteration:     A simple binary tree with integer data.
@@ -7,30 +7,71 @@
  *
  */
 
-//  TODO: make testing classes
+
+//  TODO: use pointers, parameterize, add loops
+
 
 /*  PREPROCESSOR  */
 
-#include "tree.h"
-
-
-/*  PROTOTYPES  */
-
-bool testnode_default_const(void); 
+#include "test.h"
 
 
 /*  NODE TESTS  */
 
+//  Default constructor.
+
+testnode::testnode(void) {}
+
+
+//  Destructor.
+
+testnode::~testnode(void) {
+
+    passed = failed = 0;
+
+}
+
+
 //  Test: default constructor.
 
-bool testnode_default_const(void) {
+bool testnode::test_def_constr(void) {
 
-    node testnode;
+    node test;
 
-    if (testnode.data) {
+    if (test.data) {
         return false;
     }
-    if (testnode.left || testnode.right) {
+    if (test.left || test.right) {
+        return false;
+    }
+    
+    return true;
+
+}
+
+
+//  Test: constructor with integer item.
+
+bool testnode::test_item_constr(const int item) {
+
+    node test(item);
+
+    if (test.data != item) {
+        return false;
+    }
+
+    return true;
+
+}
+
+
+//  Test: display data item.
+
+bool testnode::test_display(const int item) {
+
+    node test(item);
+
+    if (!test.display()) {
         return false;
     }
     
