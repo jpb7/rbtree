@@ -1,5 +1,5 @@
 /*  Jacob Bentley
- *  2022-01-20
+ *  2022-01-23
  *
  *  Project:            Implementing a red-black tree in C++.
  *  This iteration:     A simple binary tree with integer data.
@@ -8,7 +8,7 @@
  */
 
 
-//  TODO: use pointers, parameterize, add loops
+//  TODO: fix output redirect issues starting at 81.
 
 
 /*  PREPROCESSOR  */
@@ -52,29 +52,56 @@ bool testnode::test_def_constr(void) {
 
 //  Test: constructor with integer item.
 
-bool testnode::test_item_constr(const int item) {
+bool testnode::test_item_constr(void) {
 
-    node test(item);
+    int failed = 0;
 
-    if (test.data != item) {
-        return false;
+    for (int i = MIN; i < MAX; ++i) {
+        node test(i);
+        if (test.data != i) {
+            ++failed;
+            std::cout << "Item constructor: failed for value " << i << "."
+                      << std::endl;
+        }
     }
 
-    return true;
+    if (!failed) {
+        return true;
+    }
+
+    return false;
 
 }
 
+
+//  TODO: fix output redirect issues.
 
 //  Test: display data item.
 
 bool testnode::test_display(const int item) {
 
-    node test(item);
+    int failed = 0;
+    std::streambuf *out = std::cout.rdbuf();
+    std::cout.rdbuf(NULL);
 
-    if (!test.display()) {
-        return false;
+    for (int i = MIN; i < MAX; ++i) {
+        node test(i);
+        if (!test.display()) {
+            ++failed;
+            std::cout.rdbuf(out);
+            std::cout << "Display: failed for value " << i << "."
+                      << std::endl;
+            std::cout.rdbuf(NULL);
+        }
     }
-    
-    return true;
+
+    std::cout.rdbuf(out);
+
+    if (!failed) {
+        std::cout << "\nDisplay: success!" << std::endl;
+        return true;
+    }
+
+    return false;
 
 }
