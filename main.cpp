@@ -26,6 +26,10 @@ int main(void) {
         std::cout << "Item constructor: success!" << std::endl;
     }
 
+    if (x.test_display()) {
+        std::cout << "Display: success!" << std::endl;
+    }
+
    return 0;
 
 }

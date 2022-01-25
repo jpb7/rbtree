@@ -1,5 +1,5 @@
 /*  Jacob Bentley
- *  2022-01-20
+ *  2022-01-23
  *
  *  Project:            Implementing a red-black tree in C++.
  *  This iteration:     A simple binary tree with integer data.
@@ -23,7 +23,7 @@ struct node {
     ~node(void);
 
     //  Print integer value with trailing space.
-    bool display(void);
+    bool display(std::ostream &out = std::cout);
 
     int data;
     node *left, *right;

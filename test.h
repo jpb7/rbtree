@@ -29,7 +29,7 @@ class testnode {
 
         bool test_def_constr(void);
         bool test_item_constr(void);
-        bool test_display(const int item);
+        bool test_display(void);
 
     protected:
 

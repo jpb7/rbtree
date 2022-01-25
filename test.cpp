@@ -1,5 +1,5 @@
 /*  Jacob Bentley
- *  2022-01-23
+ *  2022-01-25
  *
  *  Project:            Implementing a red-black tree in C++.
  *  This iteration:     A simple binary tree with integer data.
@@ -75,27 +75,25 @@ bool testnode::test_item_constr(void) {
 
 
 //  TODO: fix output redirect issues.
+//        goal: reconcile streambuffer with ostream (w/o overload)
 
 //  Test: display data item.
 
-bool testnode::test_display(const int item) {
+bool testnode::test_display(void) {
 
     int failed = 0;
     std::streambuf *out = std::cout.rdbuf();
-    std::cout.rdbuf(NULL);
 
     for (int i = MIN; i < MAX; ++i) {
+        std::cout.rdbuf(NULL);
         node test(i);
         if (!test.display()) {
             ++failed;
             std::cout.rdbuf(out);
             std::cout << "Display: failed for value " << i << "."
                       << std::endl;
-            std::cout.rdbuf(NULL);
         }
     }
-
-    std::cout.rdbuf(out);
 
     if (!failed) {
         std::cout << "\nDisplay: success!" << std::endl;
