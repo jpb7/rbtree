@@ -1,5 +1,5 @@
 /*  Jacob Bentley
- *  2022-01-23
+ *  2022-01-27
  *
  *  Project:            Implementing a red-black tree in C++.
  *  This iteration:     A simple binary tree with integer data.
@@ -34,7 +34,7 @@ node::~node(void) {
 
 bool node::display(std::ostream &out) {
 
-    if (std::cout << data << " ") {
+    if (out << data << " ") {
         return true;
     }
     return false;

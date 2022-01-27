@@ -1,5 +1,5 @@
 /*  Jacob Bentley
- *  2022-01-23
+ *  2022-01-27
  *
  *  Project:            Implementing a red-black tree in C++.
  *  This iteration:     A simple binary tree with integer data.
@@ -9,6 +9,7 @@
 
 //  PREPROCESSOR
 
+#include <sstream>
 #include "tree.h"
 
 
