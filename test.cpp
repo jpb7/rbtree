@@ -1,5 +1,5 @@
 /*  Jacob Bentley
- *  2022-01-27
+ *  2022-01-30
  *
  *  Project:            Implementing a red-black tree in C++.
  *  This iteration:     A simple binary tree with integer data.
@@ -16,12 +16,12 @@
 
 //  Default constructor.
 
-testnode::testnode(void) {}
+testNode::testNode(void) {}
 
 
 //  Destructor.
 
-testnode::~testnode(void) {
+testNode::~testNode(void) {
 
     passed = failed = 0;
 
@@ -30,7 +30,7 @@ testnode::~testnode(void) {
 
 //  Test: default constructor.
 
-bool testnode::test_def_constr(void) {
+bool testNode::test_def_constr(void) {
 
     node test;
 
@@ -48,7 +48,7 @@ bool testnode::test_def_constr(void) {
 
 //  Test: constructor with integer item.
 
-bool testnode::test_item_constr(void) {
+bool testNode::test_item_constr(void) {
 
     int failed = 0;
 
@@ -72,7 +72,7 @@ bool testnode::test_item_constr(void) {
 
 //  Test: display data item.
 
-bool testnode::test_display(void) {
+bool testNode::test_display(void) {
 
     std::stringstream ss;   //  suppress output in node.display()
     int failed = 0;
@@ -93,3 +93,5 @@ bool testnode::test_display(void) {
     return false;
 
 }
+
+

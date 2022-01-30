@@ -1,5 +1,5 @@
 /*  Jacob Bentley
- *  2022-01-23
+ *  2022-01-30
  *
  *  Project:            Implementing a red-black tree in C++.
  *  This iteration:     A simple binary tree with integer data.
@@ -82,6 +82,8 @@ class tree {
         int  display_all(node *root) const;
 
         //  Recursively remove all nodes and deallocate tree's memory.
-        int  remove_all(node *& root);
+        int  remove_all(node *&root);
 
 };
+
+

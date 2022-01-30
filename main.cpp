@@ -1,5 +1,5 @@
 /*  Jacob Bentley
- *  2022-01-23
+ *  2022-01-30
  *
  *  Project:            Implementing a red-black tree in C++.
  *  This iteration:     A simple binary tree with integer data.
@@ -16,7 +16,7 @@
 
 int main(void) {
 
-    testnode x;
+    testNode x;
 
     if (x.test_def_constr()) {
         std::cout << "Default constructor: success!" << std::endl;
@@ -30,6 +30,15 @@ int main(void) {
         std::cout << "Display: success!" << std::endl;
     }
 
-   return 0;
+    // quick test for initialization constructor, remove_all
+
+    tree y(1);
+    if (y.remove_all()) {
+        std::cout << "Remove single node: success!" << std::endl;
+    }
+
+    return 0;
 
 }
+
+

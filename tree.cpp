@@ -1,5 +1,5 @@
 /*  Jacob Bentley
- *  2022-01-27
+ *  2022-01-30
  *
  *  Project:            Implementing a red-black tree in C++.
  *  This iteration:     A simple binary tree with integer data.
@@ -44,7 +44,51 @@ bool node::display(std::ostream &out) {
 
 /*  TREE FUNCTIONS  */
 
-//  Constructor.
+//  Constructors.
 
 tree::tree(void): nodes(0), height(0), root(NULL) {}
 tree::tree(const int item): nodes(1), height(1), root(new node(item)) {}
+
+
+//  Destructor.
+
+tree::~tree(void) {
+
+    nodes = height = 0;
+    if (root) {
+        remove_all(root);
+    }
+
+}
+
+
+//  Wrapper function to recursively remove every node in the tree.
+//  Returns number of nodes removed.
+
+int tree::remove_all(void) {
+
+    return remove_all(root);
+
+}
+
+
+//  Use head recursion to remove every node in the tree, starting at leaves.
+//  Returns number of nodes removed.
+
+int tree::remove_all(node *&root) {
+
+    if (!root) {
+        return 0;
+    }
+
+    int removed = remove_all(root->left);
+    removed += remove_all(root->right);
+
+    delete root;
+    root = NULL;
+
+    return ++removed;
+
+}
+
+
