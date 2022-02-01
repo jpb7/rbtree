@@ -1,11 +1,13 @@
 /*  Jacob Bentley
- *  2022-01-30
+ *  2022-02-01
  *
  *  Project:            Implementing a red-black tree in C++.
  *  This iteration:     A simple binary tree with integer data.
  *  This file:          Testing functions.
  *
  */
+
+//  TODO: implement test_insert at L105.
 
 /*  PREPROCESSOR  */
 
@@ -50,6 +52,7 @@ bool testNode::test_def_constr(void) {
 
 bool testNode::test_item_constr(void) {
 
+    //  TODO: field or local variable?
     int failed = 0;
 
     for (int i = MIN; i < MAX; ++i) {
@@ -75,6 +78,8 @@ bool testNode::test_item_constr(void) {
 bool testNode::test_display(void) {
 
     std::stringstream ss;   //  suppress output in node.display()
+
+    //  TODO: field or local variable?
     int failed = 0;
 
     for (int i = MIN; i < MAX; ++i) {
@@ -90,6 +95,18 @@ bool testNode::test_display(void) {
         return true;
     }
 
+    return false;
+
+}
+
+
+//  Test: insert in balanced order.
+
+bool testTree::test_insert(void) {
+
+    //tree test;
+    //int failed = 0;
+    //  TODO: algorithm for balanced insertion.
     return false;
 
 }

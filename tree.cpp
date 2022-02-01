@@ -1,5 +1,5 @@
 /*  Jacob Bentley
- *  2022-01-30
+ *  2022-02-01
  *
  *  Project:            Implementing a red-black tree in C++.
  *  This iteration:     A simple binary tree with integer data.
@@ -58,6 +58,34 @@ tree::~tree(void) {
     if (root) {
         remove_all(root);
     }
+
+}
+
+
+//  Wrapper function: insert node according to data item.
+
+bool tree::insert(const int n) {
+
+    return insert(root, n);
+
+}
+
+
+//  Insert node in sorted order.
+
+bool tree::insert(node *&root, const int n) {
+
+    if (!root) {
+        root = new node(n);
+        ++nodes;
+        return true;
+    }
+
+    else if (n < root->data) {
+        return insert(root->left, n);
+    }
+
+    return insert(root->right, n);
 
 }
 

@@ -1,5 +1,5 @@
 /*  Jacob Bentley
- *  2022-01-30
+ *  2022-02-01
  *
  *  Project:            Implementing a red-black tree in C++.
  *  This iteration:     A simple binary tree with integer data.
@@ -15,7 +15,7 @@
 
 //  CONSTANTS
 
-#define MIN -100
+#define MIN -101
 #define MAX 101
 
 
