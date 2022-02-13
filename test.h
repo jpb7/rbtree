@@ -1,5 +1,5 @@
 /*  Jacob Bentley
- *  2022-02-01
+ *  2022-02-13
  *
  *  Project:            Implementing a red-black tree in C++.
  *  This iteration:     A simple binary tree with integer data.
@@ -15,11 +15,15 @@
 
 //  CONSTANTS
 
-#define MIN -101
-#define MAX 101
+#define MIN   -101
+#define MAX    101
+#define RANGE  203
 
 
 /*  TEST INTERFACES  */
+
+
+//  Node testing class.
 
 class testNode {
 
@@ -39,6 +43,8 @@ class testNode {
 };
 
 
+//  Tree testing class.
+
 class testTree {
 
     public:
@@ -49,6 +55,7 @@ class testTree {
         bool test_def_constr(void);
         bool test_item_constr(void);
         bool test_insert(void);
+        bool test_insert_array(void);
         bool test_remove(void);
         bool test_retrieve(void);
         bool test_display(void);

@@ -1,5 +1,5 @@
 /*  Jacob Bentley
- *  2022-02-01
+ *  2022-02-13
  *
  *  Project:            Implementing a red-black tree in C++.
  *  This iteration:     A simple binary tree with integer data.
@@ -13,6 +13,7 @@
 
 
 /*  NODE FUNCTIONS  */
+
 
 //  Constructors.
 
@@ -43,6 +44,7 @@ bool node::display(std::ostream &out) {
 
 
 /*  TREE FUNCTIONS  */
+
 
 //  Constructors.
 
@@ -86,6 +88,41 @@ bool tree::insert(node *&root, const int n) {
     }
 
     return insert(root->right, n);
+
+}
+
+
+//  Wrapper function: recursively insert sorted array in balanced order.
+//  Finds length of array, inserts values, returns number of nodes inserted.
+
+int tree::insert_array(int arr[]) {
+
+    //  TODO: make this more readable and/or efficient.
+
+    int start = arr[0], stop;
+    for (stop = 0; arr[stop]; ++stop);
+    return insert_array(root, arr, start, stop);
+
+}
+
+
+//  Insert sorted array of integers in balanced order.
+
+int tree::insert_array(node *&root, int arr[], int start, int stop) {
+
+    if (start > stop) {
+        root = NULL;
+        return 0;
+    }
+
+    int mid = floor((start + stop) / 2);
+    int count = 1;
+
+    root = new node(arr[mid]);
+    count += insert_array(root->left, arr, start, mid - 1);
+    count += insert_array(root->right, arr, mid + 1, stop);
+
+    return count;
 
 }
 

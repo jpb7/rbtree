@@ -1,5 +1,5 @@
 /*  Jacob Bentley
- *  2022-02-01
+ *  2022-02-13
  *
  *  Project:            Implementing a red-black tree in C++.
  *  This iteration:     A simple binary tree with integer data.
@@ -7,7 +7,8 @@
  *
  */
 
-//  TODO: implement test_insert at L105.
+//  TODO: implement test_insert.
+//  TODO: make these more modular (ie. pass in node/tree pointers).
 
 /*  PREPROCESSOR  */
 
@@ -100,13 +101,44 @@ bool testNode::test_display(void) {
 }
 
 
+/*  TREE TESTS  */
+
+
+//  Constructor.
+
+testTree::testTree(void): passed(0), failed(0) {}
+
+
+//  Destructor.
+
+testTree::~testTree(void) {
+    passed = failed = 0;
+}
+
+
 //  Test: insert in balanced order.
 
-bool testTree::test_insert(void) {
+bool testTree::test_insert_array(void) {
 
-    //tree test;
-    //int failed = 0;
-    //  TODO: algorithm for balanced insertion.
+    tree test;
+    int inserted = 0;
+    int failed = 0;
+    int arr[RANGE];
+
+    for (int i = MIN, j = 0; i < MAX + 1; ++i, ++j) {
+        arr[j] = i;
+    }
+
+    inserted = test.insert_array(arr);
+    failed = RANGE - inserted;
+
+    if (!failed) {
+        return true;
+    }
+        
+    std::cout << "Balanced insert: missed " << failed << " nodes."
+              << std::endl;
+
     return false;
 
 }
