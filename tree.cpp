@@ -1,5 +1,5 @@
 /*  Jacob Bentley
- *  2022-02-13
+ *  2022-02-20
  *
  *  Project:            Implementing a red-black tree in C++.
  *  This iteration:     A simple binary tree with integer data.
@@ -97,11 +97,11 @@ bool tree::insert(node *&root, const int n) {
 
 int tree::insert_array(int arr[]) {
 
-    //  TODO: make this more readable and/or efficient.
+    //  Find end of array; goes one past final element.
+    int stop = 0;
+    while (arr[stop++]);  
 
-    int start = arr[0], stop;
-    for (stop = 0; arr[stop]; ++stop);
-    return insert_array(root, arr, start, stop);
+    return insert_array(root, arr, arr[0], --stop);
 
 }
 
@@ -116,6 +116,7 @@ int tree::insert_array(node *&root, int arr[], int start, int stop) {
     }
 
     int mid = floor((start + stop) / 2);
+    //std::cout << mid << ' ';
     int count = 1;
 
     root = new node(arr[mid]);
@@ -153,6 +154,34 @@ int tree::remove_all(node *&root) {
     root = NULL;
 
     return ++removed;
+
+}
+
+
+//  Wrapper function to display all nodes in order by value.
+//  Returns number of nodes displayed.
+
+int tree::display_all(void) const {
+
+    return display_all(root);
+
+}
+
+
+//  Recursively traverse tree, in order, and display value of nodes.
+//  Returns number of nodes displayed.
+
+int tree::display_all(node *root) const {
+
+    if (!root) {
+        return 0;
+    }
+
+    int count = display_all(root->left);
+    root->display();
+    count += display_all(root->right);
+
+    return ++count;
 
 }
 
