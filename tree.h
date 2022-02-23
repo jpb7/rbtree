@@ -1,5 +1,5 @@
 /*  Jacob Bentley
- *  2022-02-13
+ *  2022-02-23
  *
  *  Project:            Implementing a red-black tree in C++.
  *  This iteration:     A simple binary tree with integer data.
@@ -44,7 +44,7 @@ class tree {
 
         //  Add value `n` to tree in sorted order.
         bool insert(const int n);
-        int  insert_array(int arr[]);
+        int  insert_array(int arr[], int len);
 
         //  Remove first value `n` found in tree.
         bool remove(const int n);

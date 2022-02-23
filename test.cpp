@@ -1,5 +1,5 @@
 /*  Jacob Bentley
- *  2022-02-13
+ *  2022-02-23
  *
  *  Project:            Implementing a red-black tree in C++.
  *  This iteration:     A simple binary tree with integer data.
@@ -125,11 +125,11 @@ bool testTree::test_insert_array(void) {
     int failed = 0;
     int arr[RANGE];
 
-    for (int i = MIN, j = 0; i < MAX + 1; ++i, ++j) {
-        arr[j] = i;
+    for (int i = 0, value = MIN; i < RANGE; ++i, ++value) {
+        arr[i] = value;
     }
 
-    inserted = test.insert_array(arr);
+    inserted = test.insert_array(arr, RANGE - 1);
     failed = RANGE - inserted;
 
     if (!failed) {

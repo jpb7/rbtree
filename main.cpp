@@ -1,5 +1,5 @@
 /*  Jacob Bentley
- *  2022-02-20
+ *  2022-02-23
  *
  *  Project:            Implementing a red-black tree in C++.
  *  This iteration:     A simple binary tree with integer data.
@@ -35,12 +35,11 @@ int main(void) {
 
     std::cout << "\nTREE TESTING\n" << std::endl;
 
-    /*
     if (y.test_insert_array()) {
         std::cout << "Balanced insertion: success!" << std::endl;
     }
-    */
 
+    /*
     tree z;
     int arr[RANGE];
 
@@ -55,7 +54,7 @@ int main(void) {
 
     std::cout << "\nInserting array..." << std::endl;
 
-    if (z.insert_array(arr)) {
+    if (z.insert_array(arr, RANGE - 1)) {
         std::cout << "... insertion complete." << std::endl;
     }
 
@@ -64,6 +63,7 @@ int main(void) {
     if (z.display_all()) {
         std::cout << "\n... display complete." << std::endl;
     }
+    */
 
     std::cout << std::endl;
 
